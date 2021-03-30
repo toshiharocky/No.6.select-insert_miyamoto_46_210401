@@ -19,7 +19,7 @@
     // POSTで取得した値を変数に転換
     session_start();
     $_SESSION['model_num'] = $_POST['model_num'];
-    $_SESSION['person_in_charge'] = $_POST['person_in_charge'];
+    $_SESSION['order_person'] = $_POST['order_person'];
     $_SESSION['productName'] = $_POST['product_name'];
     $_SESSION['order'] = $_POST['order'];
     $_SESSION['category'] = $_POST['category'];
@@ -46,7 +46,7 @@
     </tr>
     <tr>
         <td>担当者</td>
-        <td><?=$_SESSION['person_in_charge']?></td>
+        <td><?=$_SESSION['order_person']?></td>
     </tr>
 </table>
 <button onclick="location.href='03-5. order insert.php'">送信</button>

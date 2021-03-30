@@ -118,7 +118,7 @@
         </div>
 <form action="03-4. order confirm.php" method="post">
     発注数：<input type="text" name="order" id="order">
-    担当者：<input type="text" name="person_in_charge" id="person_in_charge">
+    担当者：<input type="text" name="order_person" id="order_person">
     <?=$productInfo?>
     <input type="submit" value="送信" id="submit">
 </form>
@@ -155,7 +155,7 @@
         // console.log(shop_warehouse);
         // console.log(total !== shop_warehouse)
     // <!-- 登録ボタン押下時に記入されていない場合は「全ての項目を記入してください」とアラートを出す -->
-        if($("#order").val()=="" || $("#person_in_charge").val()==""){
+        if($("#order").val()=="" || $("#order_person").val()==""){
             alert("必要事項を記入してください");
             return false;
         }

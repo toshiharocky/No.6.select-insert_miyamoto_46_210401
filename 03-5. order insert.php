@@ -25,7 +25,7 @@
     $model_num = $_SESSION['model_num'];
     $productName = $_SESSION['productName'];
     $order = $_SESSION['order'];
-    $person_in_charge = $_SESSION['person_in_charge'];
+    $order_person = $_SESSION['order_person'];
 
    
 //DB接続
@@ -66,8 +66,8 @@ if($status==false){
 // ②テーブル「order_db」に登録
 // 1. SQL文を用意
 $stmt_02 = $pdo->prepare("INSERT 
-    INTO order_db(id, category, model_num, product_name, indate, order_amount, person_in_charge, status, place)
-    VALUE (null, :category, :model_num, :product_name, sysdate(), :order, :person_in_charge, :status, null)"
+    INTO order_db(id, category, model_num, product_name, indate, order_amount, order_person, status, delivery_person, place)
+    VALUE (null, :category, :model_num, :product_name, sysdate(), :order, :order_person, :status, null, null)"
     );
 
 //  2. バインド変数を用意
@@ -75,7 +75,7 @@ $stmt_02->bindValue(':category', $category, PDO::PARAM_STR); //****************)
 $stmt_02->bindValue(':model_num', $model_num, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt_02->bindValue(':product_name', $productName, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt_02->bindValue(':order', $order, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt_02->bindValue(':person_in_charge', $person_in_charge, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt_02->bindValue(':order_person', $order_person, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt_02->bindValue(':status', "waiting", PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 
 //  3. 実行
