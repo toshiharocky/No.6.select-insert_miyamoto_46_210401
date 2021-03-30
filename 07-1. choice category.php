@@ -11,12 +11,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-<form action="07-2. choice product name.php" method="post">
-    <button type="submit" name="category" value="supplements">supplements</button>
-    <button type="submit" name="category" value="clothes">clothes</button>
-    <button type="submit" name="category" value="equipment">equipment</button>
-    <button type="submit" name="category" value="books">books</button>
-</form>    
+<h1>商品情報更新</h1>
+<h2>カテゴリーを選択してください</h2>
+<form action="07-2. choice product name.php" method="post" style="text-align:center; margin-top:30px;">
+    <button class="btn" type="submit" name="category" value="supplements">supplements</button><br>
+    <button class="btn" type="submit" name="category" value="clothes">clothes</button><br>
+    <button class="btn" type="submit" name="category" value="equipment">equipment</button><br>
+    <button class="btn" type="submit" name="category" value="books">books</button>
+</form>
 
 </body>
 </html>
