@@ -25,6 +25,10 @@
     $model_num = $_SESSION['model_num'];
     $category = $_SESSION['category'];
     $productName = $_SESSION['productName'];
+    $total_amount = $_SESSION['total_amount'];
+    $shop_amount = $_SESSION['shop_amount'];
+    $warehouse_amount = $_SESSION['warehouse_amount'];
+    $waiting_amount = $_SESSION['waiting_amount'];
     $threshold = $_SESSION['threshold'];
 //DB接続
 try {
@@ -38,15 +42,14 @@ try {
 // ①テーブル「product_num_maseter」に"model_num","category","product_name","threshold"を登録-->
 // 1. SQL文を用意
 $stmt = $pdo->prepare("INSERT 
-    INTO product_num_master(model_num, category, product_name, threshold, indate)
-    VALUE (:model_num, :category, :product_name, :threshold, sysdate())"
+    INTO product_num_master(model_num, category, product_name, indate)
+    VALUE (:model_num, :category, :product_name, sysdate())"
     );
 
 //  2. バインド変数を用意
 $stmt->bindValue(':model_num', $model_num, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':category', $category, PDO::PARAM_STR); //****************);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':product_name', $productName, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':threshold', $threshold, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 
 //  3. 実行
 $status = $stmt->execute();
@@ -65,13 +68,17 @@ if($status==false){
 // 1. SQL文を用意
 $stmt_02 = $pdo->prepare("INSERT 
     INTO total_db(model_num, category, product_name, total_amount, shop_amount, warehouse_amount, waiting_amount, threshold, indate)
-    VALUE (:model_num, :category, :product_name, null, null, null, null, :threshold, sysdate())"
+    VALUE (:model_num, :category, :product_name, :total_amount, :shop_amount, :warehouse_amount, :waiting_amount, :threshold, sysdate())"
     );
 
 //  2. バインド変数を用意
 $stmt_02->bindValue(':model_num', h($model_num), PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt_02->bindValue(':category', h($category), PDO::PARAM_STR); //****************);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt_02->bindValue(':product_name', h($productName), PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt_02->bindValue(':product_name', h($productName), PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)$stmt->bindValue(':', $, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt_02->bindValue(':total_amount', $total_amount, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt_02->bindValue(':shop_amount', $shop_amount, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt_02->bindValue(':warehouse_amount', $warehouse_amount, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt_02->bindValue(':waiting_amount', $waiting_amount, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt_02->bindValue(':threshold', h($threshold), PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 
 //  3. 実行

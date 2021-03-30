@@ -30,7 +30,7 @@
                             <option value="books">004_books</option>
                         </select>
                     </label><br>
-                    <label>商品番号：<br>
+                    <label>商品番号*：<br>
                         <div class="productName" style="display:flex;">
                             <input type="text"name="category_num" id="category_num" style="width:50px; height:21px; border:solid 1px black;" readonly></input>
                             <p style="padding:0 15px; height=21px; line-height:21px">-</p> 
@@ -38,9 +38,21 @@
                         </div>
                     </label><br>
                     <label>商品名：
-                        <input type="test" name="product_name">
+                        <input type="test" name="product_name" id='product_name'>
                     </label><br>
-                    <label>発注閾値：
+                    <label>在庫総数*：
+                        <input type='text' name='total_amount' id='total_amount'>
+                    </label><br>
+                    <label>店舗内在庫*：
+                        <input type='text' name='shop_amount' id='shop_amount'>
+                    </label><br>
+                    <label>倉庫内在庫*：
+                        <input type='text' name='warehouse_amount' id='warehouse_amount'>
+                    </label><br>
+                    <label>納品待ち*：
+                        <input type='text' name='waiting_amount' id='waiting_amount'>
+                    </label><br>
+                    <label>発注閾値*：
                         <input type="text" name="threshold" id="threshold">
                     </label><br>
                 </legend>
@@ -59,7 +71,7 @@
         $('[name="category_num"]').val([b]);
     }
 
-    $("#category").change(function (){
+    $("#category").change(function(){
         let val =$(this).val();
         switch (val){
             case "supplements":
@@ -89,21 +101,27 @@
             return false;
         }
     // <!-- 登録ボタン押下時にどれか1つでも記入されていない場合は「全ての項目を記入してください」とアラートを出す -->
-        else if($("#product_num").val()=="" || $("#product_name").val()=="" || $("#threshold").val()==""){
+        else if($("#product_num").val()=="" || $("#product_name").val()=="" || $("#total_amount").val()=="" || $("#shop_amount").val()=="" || $("#warehouse_amount").val()=="" || $("#waiting_amount").val()=="" || $("#threshold").val()==""){
             alert("全ての項目を記入してください");
             return false;
         }
     // <!-- 登録ボタン押下時に商品番号と発注閾値に数字が入力されていない場合は、「商品番号と発注閾値には数字を入力してください」とアラートを出す -->
-        else if(isNaN($("#product_num").val()) || isNaN($("#threshold").val())){
+        else if(isNaN($("#product_num").val()) || isNaN($("#total_amount").val())  || isNaN($("#shop_amount").val())  || isNaN($("#warehouse_amount").val())  || isNaN($("#waiting_amount").val()) || isNaN($("#threshold").val())){
             console.log($("#product_num").val());
             console.log($("#threshold").val());
-            alert("商品番号と発注閾値には数字を入力してください");
+            alert("*印のある項目には数字を入力してください");
             return false;
         }
     // 商品番号が6桁でない場合は「商品番号は6桁の数字を記入してください」とアラートを出す
         else if($("#product_num").val().toString().length!=6){
             console.log($("#product_num").val().toString().length);
             alert("商品番号は6桁の数字を記入してください");
+            return false;
+        }
+    // <!-- 登録ボタン押下時に「店舗内在庫」と「倉庫内在庫」の合計が「在庫総数」と同数でない場合は、「店舗内在庫と倉庫内在庫の合計が、在庫総数と一致していません」とアラートを出す -->
+        else if(Number($("#total_amount").val()) !== Number($("#shop_amount").val()) + Number($("#warehouse_amount").val())){
+            alert("店舗内在庫と倉庫内在庫の合計が、在庫総数と一致していません");
+            // console.log(Number($("#total_amount").val()) !== Number($("#shop_amount").val()) + Number($("#warehouse_amount").val()));
             return false;
         }
     })
