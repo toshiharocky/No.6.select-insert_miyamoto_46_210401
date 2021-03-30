@@ -18,32 +18,35 @@
     
     // POSTで取得した値を変数に転換
     session_start();
-    $_SESSION['model_num'] = $_POST['category_num'].$_POST['product_num'];
+    $_SESSION['model_num'] = $_POST['category_num']."-".$_POST['product_num'];
     $_SESSION['category'] = $_POST['category'];
     $_SESSION['productName'] = $_POST['product_name'];
     $_SESSION['threshold'] = $_POST['threshold'];
 
-
-    // echo $_SESSION['model_num'];
+    $model_num = $_SESSION['model_num'];
+    $category = $_SESSION['category'];
+    $productName = $_SESSION['productName'];
+    $threshold = $_SESSION['threshold'];
+    echo $_SESSION['model_num'];
 ?>
 <!-- // 表形式で数値を記入 -->
 <h1>確認画面</h1>    
 <table class="">
     <tr>
         <td>商品番号</td>
-        <td><?=$_SESSION['model_num']?></td>
+        <td><?=$model_num?></td>
     </tr>
     <tr>
         <td>カテゴリー</td>
-        <td><?=$_SESSION['category']?></td>
+        <td><?=$category?></td>
     </tr>
     <tr>
         <td>商品名</td>
-        <td><?=$_SESSION['productName']?></td>
+        <td><?=$productName?></td>
     </tr>
     <tr>
         <td>発注しきい値</td>
-        <td><?=$_SESSION['threshold']?></td>
+        <td><?=$threshold?></td>
     </tr>
 </table>
 <button onclick="location.href='06-3. register insert.php'">送信</button>

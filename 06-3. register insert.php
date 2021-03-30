@@ -21,11 +21,11 @@
 
 // 前ページからの変数の受け取り
     session_start();
+    // ("000" + a).slice( -3 )
     $model_num = $_SESSION['model_num'];
     $category = $_SESSION['category'];
     $productName = $_SESSION['productName'];
     $threshold = $_SESSION['threshold'];
-
 //DB接続
 try {
     //ID:'root', Password: 'root'
@@ -43,10 +43,10 @@ $stmt = $pdo->prepare("INSERT
     );
 
 //  2. バインド変数を用意
-$stmt->bindValue(':model_num', h($model_num), PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':category', h($category), PDO::PARAM_STR); //****************);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':product_name', h($productName), PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':threshold', h($threshold), PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':model_num', $model_num, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':category', $category, PDO::PARAM_STR); //****************);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':product_name', $productName, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':threshold', $threshold, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 
 //  3. 実行
 $status = $stmt->execute();
@@ -60,22 +60,16 @@ if($status==false){
 
 
 // ②テーブル「total_db」に"model_num","category","product_name","threshold"を登録-->
-//DB接続
-try {
-    //ID:'root', Password: 'root'
-    $pdo_02 = new PDO('mysql:dbname=inventory_management;charset=utf8;host=localhost','root','root');
-  } catch (PDOException $e) {
-    exit('DBConnectError:'.$e->getMessage());
-  }
+
 
 // 1. SQL文を用意
-$stmt_02 = $pdo_02->prepare("INSERT 
+$stmt_02 = $pdo->prepare("INSERT 
     INTO total_db(model_num, category, product_name, total_amount, shop_amount, warehouse_amount, waiting_amount, threshold, indate)
     VALUE (:model_num, :category, :product_name, null, null, null, null, :threshold, sysdate())"
     );
 
 //  2. バインド変数を用意
-$stmt_02->bindValue(':model_num', h($model_num), PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt_02->bindValue(':model_num', h($model_num), PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt_02->bindValue(':category', h($category), PDO::PARAM_STR); //****************);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt_02->bindValue(':product_name', h($productName), PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt_02->bindValue(':threshold', h($threshold), PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)

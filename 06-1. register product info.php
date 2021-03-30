@@ -32,7 +32,7 @@
                     </label><br>
                     <label>商品番号：<br>
                         <div class="productName" style="display:flex;">
-                            <input type="text"name="category_num" id="category_num" style="width:50px; height:21px; border:solid 1px black;"></input>
+                            <input type="text"name="category_num" id="category_num" style="width:50px; height:21px; border:solid 1px black;" readonly></input>
                             <p style="padding:0 15px; height=21px; line-height:21px">-</p> 
                             <input type="text" name="product_num" id="product_num" placeholder="6桁の数字を記入してください" style="width:200px">
                         </div>
