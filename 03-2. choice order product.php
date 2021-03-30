@@ -18,7 +18,7 @@
         require_once("funcs.php");
     // 変数の受け取り
         $category = $_POST['category'];
-        // echo $category;
+        echo $category;
         // categorySelect($category);
 
 
@@ -31,7 +31,7 @@
     }
 
     //２．データ取得SQL作成
-    $stmt = $pdo->prepare("SELECT * FROM total_db WHERE category = '$category'");
+    $stmt = $pdo->prepare("SELECT * FROM product_num_master WHERE category = '$category'");
     $status = $stmt->execute();
 
     //３．データ表示

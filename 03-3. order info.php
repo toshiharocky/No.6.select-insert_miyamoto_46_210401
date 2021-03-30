@@ -16,6 +16,7 @@
         require_once("funcs.php");
 // 変数の受け取り
     $model_num =$_POST['model_num'];
+    echo $model_num;
 // 商品名が表示されると、登録されている「商品番号」「在庫総数」「店舗内在庫」「倉庫内在庫」「納品待ち」「発注しきい値」が表示される
     //1.  DB接続します
     try {
