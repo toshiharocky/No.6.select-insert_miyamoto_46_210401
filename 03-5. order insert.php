@@ -67,7 +67,7 @@ if($status==false){
 // 1. SQL文を用意
 $stmt_02 = $pdo->prepare("INSERT 
     INTO order_db(id, category, model_num, product_name, indate, order_amount, person_in_charge, status, place)
-    VALUE (null, :category, :model_num, :product_name, sysdate(), :order, :person_in_charge, null, null)"
+    VALUE (null, :category, :model_num, :product_name, sysdate(), :order, :person_in_charge, :status, null)"
     );
 
 //  2. バインド変数を用意
@@ -76,6 +76,7 @@ $stmt_02->bindValue(':model_num', $model_num, PDO::PARAM_STR);  //Integer（数�
 $stmt_02->bindValue(':product_name', $productName, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt_02->bindValue(':order', $order, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt_02->bindValue(':person_in_charge', $person_in_charge, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt_02->bindValue(':status', "waiting", PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 
 //  3. 実行
 $status_02 = $stmt_02->execute();
