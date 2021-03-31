@@ -96,6 +96,10 @@ if($status_02==false){
   //SQL実行時にエラーがある場合（エラーオブジェクト取得して表示）
   $error_02 = $stmt_02->errorInfo();
   exit("ErrorMessage:". print_r($error_02, true));
+}else{
+  //完了画面へリダイレクト
+  header("location:00. after processing.php");
+
 }
 
 

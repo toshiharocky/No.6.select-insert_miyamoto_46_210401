@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- css -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="inventory.css">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-    
-</body>
-</html>
 
-<h1>登録が完了しました。</h1>
-<a href="03-1. order.php">入力画面へ戻る</a>
-<a href="01. top page.html">トップページへ戻る</a>
 
 
 <?php
@@ -86,6 +85,15 @@ if($status_02==false){
   //SQL実行時にエラーがある場合（エラーオブジェクト取得して表示）
   $error_02 = $stmt_02->errorInfo();
   exit("ErrorMessage:". print_r($error_02, true));
+}else{
+  //完了画面へリダイレクト
+  header("location:00. after processing.php");
+
 }
 
 
+?>
+
+
+</body>
+</html>
