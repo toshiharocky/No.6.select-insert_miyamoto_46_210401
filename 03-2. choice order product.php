@@ -64,6 +64,8 @@
         <?=$product?>
     </table>
 </form>
+<button class="btn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+
 
 
 </body>

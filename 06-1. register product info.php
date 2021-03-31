@@ -60,6 +60,7 @@
             </fieldset>
         </div>
     </form>
+<button class="btn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
 
 <script>
     // <!-- カテゴリーを選択すると、カテゴリー番号が自動で入力される -->

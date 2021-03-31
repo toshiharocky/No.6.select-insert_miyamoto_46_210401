@@ -19,6 +19,8 @@
     <button class="btn" type="submit" name="category" value="equipment">equipment</button><br>
     <button class="btn" type="submit" name="category" value="books">books</button>
 </form>
+<button class="btn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+
 
 </body>
 </html>
