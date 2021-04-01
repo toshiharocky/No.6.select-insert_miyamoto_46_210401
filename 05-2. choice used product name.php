@@ -54,9 +54,10 @@
 }
 // }
 ?>
-
+<h1>使用登録</h1>
+<h2>使用した商品を選択してください</h2>
 <form action="05-3. used product info.php" method="post">
-    <table>
+    <table class="table">
         <tr>
             <th>商品ID</th>
             <th>商品名</th>
@@ -64,6 +65,9 @@
         <?=$product?>
     </table>
 </form>
+<div class="btn-wrapper">
+    <button class="btn topBtn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+</div>
 
 
 </body>

@@ -13,14 +13,17 @@
 <body>
 <h1>商品情報更新</h1>
 <h2>カテゴリーを選択してください</h2>
-<form action="03-2. choice order product.php" method="post" style="text-align:center; margin-top:30px;">
-    <button class="btn" type="submit" name="category" value="supplements">supplements</button><br>
-    <button class="btn" type="submit" name="category" value="clothes">clothes</button><br>
-    <button class="btn" type="submit" name="category" value="equipment">equipment</button><br>
-    <button class="btn" type="submit" name="category" value="books">books</button>
-</form>
-<button class="btn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
-
+<div class="choice-wrapper">
+    <form class="options" action="03-2. choice order product.php" method="post">
+        <button class="btn" type="submit" name="category" value="supplements">supplements</button><br>
+        <button class="btn" type="submit" name="category" value="clothes">clothes</button><br>
+        <button class="btn" type="submit" name="category" value="equipment">equipment</button><br>
+        <button class="btn" type="submit" name="category" value="books">books</button>
+    </form>
+</div>
+<div class="btn-wrapper">
+    <button class="btn topBtn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+</div>
 
 </body>
 </html>

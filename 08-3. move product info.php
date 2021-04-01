@@ -66,17 +66,17 @@
         while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
             $info .= 
             "
-            <table>
+            <table class='table sub-table'>
                 <tr>
-                    <td>在庫総数</td>
+                    <td class='table-left'>在庫総数</td>
                     <td>$result[total_amount]</td>
                 </tr>
                 <tr>
-                    <td>店舗内在庫</td>
+                    <td class='table-left'>店舗内在庫</td>
                     <td>$result[shop_amount]</td>
                 </tr>
                 <tr>
-                    <td>倉庫内在庫</td>
+                    <td class='table-left'>倉庫内在庫</td>
                     <td>$result[warehouse_amount]</td>
                 </tr>
             </table>
@@ -100,8 +100,8 @@
 
 <div class="register">
         <fieldset>
-            <legend>移動情報<br>
-                <table>
+            <h2>移動する商品の情報</h2>
+                <table class="table">
                     <tr>
                         <th>商品ID</th>
                         <th>商品名</th>
@@ -109,25 +109,40 @@
                     <?=$table?>
                 </table>
                 <?=$info?>
-            </legend>
         </fieldset>
 </div>
-
-<form action="08-4. move product confirm.php" method="post">
-    格納経路：
-    <select name="place_from" id="place_from">
-        <option value="selected" selected>格納経路を選択</option>
-        <option value="倉庫">倉庫⇨店舗</option>
-        <option value="店舗">店舗⇨倉庫</option>
-    </select><br>
-    <div id="place_to">
-        
-    </div>
-    個数：<input type="text" name="move_amount" id="move_amount"><br>
-    担当者：<input type="text" name="person_in_charge" id="person_in_charge"><br>
-    <?=$sent?>
-    <input type="submit" value="送信" id="submit">
-</form>
+<div class="input-wrapper">
+    <h2>移動内容</h2>
+    <form action="08-4. move product confirm.php" method="post">
+        <table class="sub-table">
+            <tr>
+                <td class=register_table>格納経路：</td>
+                <td class=register_table>
+                    <select name="place_from" id="place_from">
+                        <option value="selected" selected>格納経路を選択</option>
+                        <option value="倉庫">倉庫⇨店舗</option>
+                        <option value="店舗">店舗⇨倉庫</option>
+                    </select><br>
+                    <div id="place_to">
+                </td>
+            </tr>
+            <tr>
+                <td class=register_table>個数：</td>
+                <td class=register_table>
+                    <input type="text" name="move_amount" id="move_amount">
+                </td>
+            </tr>
+            <tr>
+                <td class=register_table>担当者：</td>
+                <td class=register_table>
+                <input type="text" name="person_in_charge" id="person_in_charge"><br>
+                </td>
+            </tr>
+        </table>
+        <?=$sent?>
+        <input type="submit" value="送信" id="submit">
+    </form>
+</div>
 
 
 

@@ -57,7 +57,7 @@
 ?>
 
 <h1>在庫状況一覧</h1>
-    <table>
+    <table class="table" style="width:90%">
         <tr>
             <th>カテゴリー</th>
             <th>商品ID</th>
@@ -70,8 +70,9 @@
         </tr>
         <?=$product?>
     </table>
-    <button class="btn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
-
+    <div class="btn-wrapper">
+        <button class="btn topBtn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+    </div>
 
 
 </body>

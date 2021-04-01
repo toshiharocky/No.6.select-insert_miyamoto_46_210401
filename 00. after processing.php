@@ -64,9 +64,9 @@
 
 ?>
 
-<h1>登録が完了しました。</h1>
+<h1>登録が完了しました</h1>
 <h2>変更後の在庫状況</h2>
-<table>
+<table class="result-table">
         <tr>
             <th>カテゴリー</th>
             <th>商品ID</th>
@@ -79,8 +79,9 @@
         </tr>
         <?=$after?>
     </table>
-<a href="01. top page.html">トップページへ戻る</a>
-
+<div class="btn-wrapper">
+    <a href="01. top page.html" class="link">トップページへ戻る</a>
+</div>
 
 </body>
 </html>

@@ -35,46 +35,49 @@
     $warehouse_amount = $_SESSION['warehouse_amount'];
     $waiting_amount = $_SESSION['waiting_amount'];
     $threshold = $_SESSION['threshold'];
-    echo $_SESSION['model_num'];
+    
 ?>
 <!-- // 表形式で数値を記入 -->
 <h1>確認画面</h1>    
-<table class="">
+<div class="table-wrapper"> 
+<table class="sub-table">
     <tr>
-        <td>商品番号</td>
-        <td><?=$model_num?></td>
+        <td class="table-left">商品番号</td>
+        <td><?=h($model_num)?></td>
     </tr>
     <tr>
-        <td>カテゴリー</td>
-        <td><?=$category?></td>
+        <td class="table-left">カテゴリー</td>
+        <td><?=h($category)?></td>
     </tr>
     <tr>
-        <td>商品名</td>
-        <td><?=$productName?></td>
+        <td class="table-left">商品名</td>
+        <td><?=h($productName)?></td>
     </tr>
     <tr>
-        <td>在庫総数</td>
-        <td><?=$total_amount?></td>
+        <td class="table-left">在庫総数</td>
+        <td><?=h($total_amount)?></td>
     </tr>
     <tr>
-        <td>店舗内在庫</td>
-        <td><?=$shop_amount?></td>
+        <td class="table-left">店舗内在庫</td>
+        <td><?=h($shop_amount)?></td>
     </tr>
     <tr>
-        <td>倉庫内在庫</td>
-        <td><?=$warehouse_amount?></td>
+        <td class="table-left">倉庫内在庫</td>
+        <td><?=h($warehouse_amount)?></td>
     </tr>
     <tr>
-        <td>納品待ち</td>
-        <td><?=$waiting_amount?></td>
+        <td class="table-left">納品待ち</td>
+        <td><?=h($waiting_amount)?></td>
     </tr>
     <tr>
-        <td>発注しきい値</td>
-        <td><?=$threshold?></td>
+        <td class="table-left">発注しきい値</td>
+        <td><?=h($threshold)?></td>
     </tr>
 </table>
-<button onclick="location.href='06-3. register insert.php'">送信</button>
 
+<div class="btn-wrapper">
+    <button onclick="location.href='06-3. register insert.php'">送信</button>
+</div>
     
 </body>
 </html>

@@ -49,6 +49,7 @@
             <td><input type='submit' name='id' value='$result[id]'></td>
             <td>$result[model_num]</td>
             <td>$result[product_name]</td>
+            <td>$result[order_amount]</td>
             <td>$result[order_person]</td>
             <td>$result[indate]</td>
             </tr>";
@@ -57,21 +58,24 @@
 }
 // }
 ?>
-
+<h1>納品登録</h1>
+<h2>納品する商品を選択してください</h2>
 <form action="04-2. delivery info.php" method="post">
-    <table>
+    <table class="table">
         <tr>
             <th>発注ID</th>
             <th>商品ID</th>
             <th>商品名</th>
+            <th>発注個数</th>
             <th>担当者</th>
             <th>発注時間</th>
         </tr>
         <?=$product?>
     </table>
 </form>
-<button class="btn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
-
+<div class="btn-wrapper">
+    <button class="btn topBtn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+</div>
 
 </body>
 </html>

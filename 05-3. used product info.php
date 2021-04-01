@@ -66,17 +66,18 @@
         while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
             $info .= 
             "
-            <table>
+            <h4>在庫状況</h4>
+            <table class='table sub-table'>
                 <tr>
-                    <td>在庫総数</td>
+                    <td class='table-left'>在庫総数</td>
                     <td>$result[total_amount]</td>
                 </tr>
                 <tr>
-                    <td>店舗内在庫</td>
+                    <td class='table-left'>店舗内在庫</td>
                     <td>$result[shop_amount]</td>
                 </tr>
                 <tr>
-                    <td>倉庫内在庫</td>
+                    <td class='table-left'>倉庫内在庫</td>
                     <td>$result[warehouse_amount]</td>
                 </tr>
             </table>
@@ -100,8 +101,8 @@
 
 <div class="register">
         <fieldset>
-            <legend>商品情報修正<br>
-                <table>
+            <h2>使用する商品情報</h2>
+                <table class="table">
                     <tr>
                         <th>商品ID</th>
                         <th>商品名</th>
@@ -109,30 +110,50 @@
                     <?=$table?>
                 </table>
                 <?=$info?>
-            </legend>
         </fieldset>
 </div>
-
-<form action="05-4. used product confirm.php" method="post">
-    格納元：
-    <select name="place" id="place">
-        <option value="selected" selected>使用した商品の格納元を選択</option>
-        <option value="店舗">shop</option>
-        <option value="倉庫">warehouse</option>
-    </select><br>
-    個数：<input type="text" name="use_amount" id="use_amount"><br>
-    理由：
-    <select name="reason" id="reason">
-        <option value="selected" selected>使用理由を選択</option>
-        <option value="販売">販売</option>
-        <option value="紛失">紛失</option>
-        <option value="破損">破損</option>
-        <option value="その他">その他</option>
-    </select><br>
-    担当者：<input type="text" name="person_in_charge" id="person_in_charge"><br>
-    <?=$sent?>
-    <input type="submit" value="送信" id="submit">
-</form>
+<div class="input-wrapper">
+    <form action="05-4. used product confirm.php" method="post">
+        <table class="sub-table" style="width:70%">
+            <tr>
+                <td class=register_table>格納元：</td>
+                <td class=register_table>
+                    <select name="place" id="place">
+                        <option value="selected" selected>使用した商品の格納元を選択</option>
+                        <option value="店舗">shop</option>
+                        <option value="倉庫">warehouse</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class=register_table>個数：</td>
+                <td class=register_table>
+                    <input type="text" name="use_amount" id="use_amount"><br>
+                </td>
+            </tr>
+            <tr>
+                <td class=register_table>理由：</td>
+                <td class=register_table>
+                    <select name="reason" id="reason">
+                        <option value="selected" selected>使用理由を選択</option>
+                        <option value="販売">販売</option>
+                        <option value="紛失">紛失</option>
+                        <option value="破損">破損</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class=register_table>担当者：</td>
+                <td class=register_table>
+                    <input type="text" name="person_in_charge" id="person_in_charge">
+                </td>
+            </tr>
+        </table>
+        <?=$sent?>
+        <input type="submit" value="送信" id="submit">
+    </form>
+</div>
 
 
 

@@ -32,39 +32,41 @@
     $_SESSION['person_in_charge'] = $_POST['person_in_charge'];
 
 
-    echo $_POST['model_num'];
-    echo $_POST['use_amount'];
 ?>
 <!-- // 表形式で数値を記入 -->
 <h1>確認画面</h1>    
-<table class="">
-    <tr>
-        <td>商品番号</td>
-        <td><?=$_SESSION['model_num']?></td>
-    </tr>
-    <tr>
-        <td>商品名</td>
-        <td><?=$_SESSION['productName']?></td>
-    </tr>
-    <tr>
-        <td>使用数</td>
-        <td><?=$_SESSION['use_amount']?></td>
-    </tr>
-    <tr>
-        <td>対象商品の格納元</td>
-        <td><?=$_SESSION['place']?></td>
-    </tr>
-    <tr>
-        <td>使用理由</td>
-        <td><?=$_SESSION['reason']?></td>
-    </tr>
-    <tr>
-        <td>担当者</td>
-        <td><?=$_SESSION['person_in_charge']?></td>
-    </tr>
-</table>
-<button onclick="location.href='05-5. used product insert.php'">送信</button>
+<div class="table-wrapper"> 
+    <table class="sub-table">
+        <tr>
+            <td class="table-left">商品番号</td>
+            <td><?=$_SESSION['model_num']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">商品名</td>
+            <td><?=$_SESSION['productName']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">使用数</td>
+            <td><?=$_SESSION['use_amount']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">対象商品の格納元</td>
+            <td><?=$_SESSION['place']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">使用理由</td>
+            <td><?=$_SESSION['reason']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">担当者</td>
+            <td><?=$_SESSION['person_in_charge']?></td>
+        </tr>
+    </table>
+</div>
 
+<div class="btn-wrapper">
+    <button onclick="location.href='05-5. used product insert.php'">送信</button>
+</div>
     
 </body>
 </html>

@@ -18,7 +18,7 @@
         require_once("funcs.php");
     // 変数の受け取り
         $category = $_POST['category'];
-        echo $category;
+        // echo $category;
         // categorySelect($category);
 
 
@@ -55,8 +55,10 @@
 // }
 ?>
 
+<h1>発注登録</h1>
+<h2>発注する商品を選択してください</h2>
 <form action="03-3. order info.php" method="post">
-    <table>
+    <table class="table">
         <tr>
             <th>商品ID</th>
             <th>商品名</th>
@@ -64,7 +66,9 @@
         <?=$product?>
     </table>
 </form>
-<button class="btn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+<div class="btn-wrapper">
+    <button class="btn topBtn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+</div>
 
 
 

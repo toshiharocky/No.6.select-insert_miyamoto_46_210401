@@ -29,44 +29,44 @@
     $_SESSION['delivery_amount'] = $_POST['delivery_amount'];
     
 
-    echo $_SESSION['model_num'];
-    echo $_SESSION['productName'];
-    echo $_SESSION['order'];
-    echo $_SESSION['delivery_amount'];
 ?>
 <!-- // 表形式で数値を記入 -->
-<h1>確認画面</h1>    
-<table class="">
-    <tr>
-        <td>発注ID</td>
-        <td><?=$_SESSION['id']?></td>
-    </tr>
-    <tr>
-        <td>商品番号</td>
-        <td><?=$_SESSION['model_num']?></td>
-    </tr>
-    <tr>
-        <td>商品名</td>
-        <td><?=$_SESSION['productName']?></td>
-    </tr>
-    <tr>
-        <td>納品総数</td>
-        <td><?=$_SESSION['delivery_amount']?></td>
-    </tr>
-    <tr>
-        <td>店舗納品数</td>
-        <td><?=$_SESSION['shop_delivery']?></td>
-    </tr>
-    <tr>
-        <td>倉庫納品数</td>
-        <td><?=$_SESSION['warehouse_delivery']?></td>
-    </tr>
-    <tr>
-        <td>納品担当者</td>
-        <td><?=$_SESSION['delivery_person']?></td>
-    </tr>
-</table>
-<button onclick="location.href='04-4. delivery insert.php'">送信</button>
+<h1>確認画面</h1>
+<div class="table-wrapper">
+    <table class="sub-table">
+        <tr>
+            <td class="table-left">発注ID</td>
+            <td><?=$_SESSION['id']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">商品番号</td>
+            <td><?=$_SESSION['model_num']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">商品名</td>
+            <td><?=$_SESSION['productName']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">納品総数</td>
+            <td><?=$_SESSION['delivery_amount']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">店舗納品数</td>
+            <td><?=$_SESSION['shop_delivery']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">倉庫納品数</td>
+            <td><?=$_SESSION['warehouse_delivery']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">納品担当者</td>
+            <td><?=$_SESSION['delivery_person']?></td>
+        </tr>
+    </table>
+</div>
+<div class="btn-wrapper">
+    <button onclick="location.href='04-4. delivery insert.php'">送信</button>
+</div>
 
     
 </body>

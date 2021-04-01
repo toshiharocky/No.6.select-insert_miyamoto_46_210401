@@ -27,48 +27,45 @@
     $_SESSION['waiting_amount'] = $_POST['waiting_amount'];
     $_SESSION['threshold'] = $_POST['threshold'];
 
-    echo $_SESSION['model_num'];
-    echo $_SESSION['category'];
-    echo $_SESSION['productName'];
-    echo $_SESSION['total_amount'];
-    echo $_SESSION['shop_amount'];
-    echo $_SESSION['warehouse_amount'];
-    echo $_SESSION['waiting_amount'];
-    echo $_SESSION['threshold'];
+    
 ?>
 <!-- // 表形式で数値を記入 -->
 <h1>確認画面</h1>    
-<table class="">
-    <tr>
-        <td>商品番号</td>
-        <td><?=$_SESSION['model_num']?></td>
-    </tr>
-    <tr>
-        <td>商品名</td>
-        <td><?=$_SESSION['productName']?></td>
-    </tr>
-    <tr>
-        <td>在庫総数</td>
-        <td><?=$_SESSION['total_amount']?></td>
-    </tr>
-    <tr>
-        <td>店舗内在庫</td>
-        <td><?=$_SESSION['shop_amount']?></td>
-    </tr>
-    <tr>
-        <td>倉庫内在庫</td>
-        <td><?=$_SESSION['warehouse_amount']?></td>
-    </tr>
-    <tr>
-        <td>納品待ち</td>
-        <td><?=$_SESSION['waiting_amount']?></td>
-    </tr>
-    <tr>
-        <td>発注しきい値</td>
-        <td><?=$_SESSION['threshold']?></td>
-    </tr>
-</table>
-<button onclick="location.href='07-5. renew insert.php'">送信</button>
+<div class="table-wrapper">
+    <table class="sub-table">
+        <tr>
+            <td class="table-left">商品番号</td>
+            <td><?=$_SESSION['model_num']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">商品名</td>
+            <td><?=$_SESSION['productName']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">在庫総数</td>
+            <td><?=$_SESSION['total_amount']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">店舗内在庫</td>
+            <td><?=$_SESSION['shop_amount']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">倉庫内在庫</td>
+            <td><?=$_SESSION['warehouse_amount']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">納品待ち</td>
+            <td><?=$_SESSION['waiting_amount']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">発注しきい値</td>
+            <td><?=$_SESSION['threshold']?></td>
+        </tr>
+    </table>
+</div>
+<div class="btn-wrapper">
+    <button onclick="location.href='07-5. renew insert.php'">送信</button>
+</div>
 
     
 </body>

@@ -32,38 +32,41 @@
     $_SESSION['person_in_charge'] = $_POST['person_in_charge'];
 
 
-    echo $_POST['model_num'];
-    echo $_POST['move_amount'];
 ?>
 <!-- // 表形式で数値を記入 -->
 <h1>確認画面</h1>    
-<table class="">
-    <tr>
-        <td>商品番号</td>
-        <td><?=$_SESSION['model_num']?></td>
-    </tr>
-    <tr>
-        <td>商品名</td>
-        <td><?=$_SESSION['productName']?></td>
-    </tr>
-    <tr>
-        <td>移動数</td>
-        <td><?=$_SESSION['move_amount']?></td>
-    </tr>
-    <tr>
-        <td>From</td>
-        <td><?=$_SESSION['place_from']?></td>
-    </tr>
-    <tr>
-        <td>To</td>
-        <td><?=$_SESSION['place_to']?></td>
-    </tr>
-    <tr>
-        <td>担当者</td>
-        <td><?=$_SESSION['person_in_charge']?></td>
-    </tr>
-</table>
-<button onclick="location.href='08-5. move product update.php'">送信</button>
+<div class="table-wrapper">
+    <table class="sub-table">
+        <tr>
+            <td class="table-left">商品番号</td>
+            <td><?=$_SESSION['model_num']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">商品名</td>
+            <td><?=$_SESSION['productName']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">移動数</td>
+            <td><?=$_SESSION['move_amount']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">From</td>
+            <td><?=$_SESSION['place_from']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">To</td>
+            <td><?=$_SESSION['place_to']?></td>
+        </tr>
+        <tr>
+            <td class="table-left">担当者</td>
+            <td><?=$_SESSION['person_in_charge']?></td>
+        </tr>
+    </table>
+</div>
+
+<div class="btn-wrapper">
+    <button onclick="location.href='08-5. move product update.php'">送信</button>
+</div>
 
     
 </body>

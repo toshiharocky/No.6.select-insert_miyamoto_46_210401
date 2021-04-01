@@ -16,7 +16,7 @@
         require_once("funcs.php");
 // 変数の受け取り
     $model_num =$_POST['model_num'];
-    echo $model_num;
+    // echo $model_num;
 // 商品名が表示されると、登録されている「商品番号」「在庫総数」「店舗内在庫」「倉庫内在庫」「納品待ち」「発注しきい値」が表示される
     //1.  DB接続します
     try {
@@ -72,26 +72,26 @@
         while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
             $info .= 
             "
-            <p>在庫状況</p>
-            <table>
+            <h4>在庫状況</h4>
+            <table class='table sub-table'>
                 <tr>
-                    <td>在庫総数</td>
+                    <td class='table-left'>在庫総数</td>
                     <td>$result[total_amount]</td>
                 </tr>
                 <tr>
-                    <td>店舗内在庫</td>
+                    <td class='table-left'>店舗内在庫</td>
                     <td>$result[shop_amount]</td>
                 </tr>
                 <tr>
-                    <td>倉庫内在庫</td>
+                    <td class='table-left'>倉庫内在庫</td>
                     <td>$result[warehouse_amount]</td>
                 </tr>
                 <tr>
-                    <td>納品待ち</td>
+                    <td class='table-left'>納品待ち</td>
                     <td>$result[waiting_amount]</td>
                 </tr>
                 <tr>
-                    <td>発注しきい値</td>
+                    <td class='table-left'>発注しきい値</td>
                     <td>$result[threshold]</td>
                 </tr>
             </table>";
@@ -104,8 +104,8 @@
 <!-- 登録情報の記入 -->
     <div class="register">
             <fieldset>
-                <legend>商品情報修正<br>
-                    <table>
+                <h2>発注する商品情報</h2>
+                    <table class="table">
                         <tr>
                             <th>商品ID</th>
                             <th>商品名</th>
@@ -113,15 +113,17 @@
                         <?=$table?>
                     </table>
                     <?=$info?>
-                </legend>
+                </h1>
             </fieldset>
         </div>
-<form action="03-4. order confirm.php" method="post">
-    発注数：<input type="text" name="order" id="order">
-    担当者：<input type="text" name="order_person" id="order_person">
-    <?=$productInfo?>
-    <input type="submit" value="送信" id="submit">
-</form>
+<div class="input-wrapper">
+    <form action="03-4. order confirm.php" method="post">
+        発注数：<input type="text" name="order" id="order"><br>
+        担当者：<input type="text" name="order_person" id="order_person">
+        <?=$productInfo?><br>
+        <input type="submit" value="送信" id="submit" style="margin-top:20px;">
+    </form>
+</div>
 
 
 

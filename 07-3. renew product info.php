@@ -66,24 +66,41 @@
         while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
             $info .= 
             "
-            <label>在庫総数：
-                <input type='text' name='total_amount' id='total_amount' value='$result[total_amount]'>
-            </label><br>
-            <label>店舗内在庫：
-                <input type='text' name='shop_amount' id='shop_amount' value='$result[shop_amount]'>
-            </label><br>
-            <label>倉庫内在庫：
-                <input type='text' name='warehouse_amount' id='warehouse_amount' value='$result[warehouse_amount]'>
-            </label><br>
-            <label>納品待ち：
-                <input type='text' name='waiting_amount' id='waiting_amount' value='$result[waiting_amount]'>
-            </label><br>
-            <label>発注しきい値：
-                <input type='text' name='threshold' id='threshold' value='$result[threshold]'>
-            </label><br>
-            <input type='text' name='category' id='category' value='$result[category]' style='display:none'>
-            <input type='text' name='model_num' id='category' value='$result[model_num]' style='display:none'>
-            <input type='text' name='product_name' id='category' value='$result[product_name]' style='display:none'>
+            <table class='sub-table' style='width:65%'>
+                <tr>
+                    <td class=register_table style='width:25%'>在庫総数：</td>
+                    <td class=register_table style='width:10%'>
+                        <input type='text' name='total_amount' id='total_amount' value='$result[total_amount]'>
+                    </td>
+                </tr>
+                <tr>
+                    <td class=register_table style='width:25%'>店舗内在庫：</td>
+                    <td class=register_table style='width:10%'>
+                        <input type='text' name='shop_amount' id='shop_amount' value='$result[shop_amount]'>
+                    </td>
+                </tr>
+                <tr>
+                    <td class=register_table style='width:25%'>倉庫内在庫：</td>
+                    <td class=register_table style='width:10%'>
+                        <input type='text' name='warehouse_amount' id='warehouse_amount' value='$result[warehouse_amount]'>
+                    </td>
+                </tr>
+                <tr>
+                    <td class=register_table style='width:25%'>納品待ち：</td>
+                    <td class=register_table style='width:10%'>
+                        <input type='text' name='waiting_amount' id='waiting_amount' value='$result[waiting_amount]'>
+                    </td>
+                </tr>
+                <tr>
+                    <td class=register_table style='width:25%'>発注しきい値：</td>
+                    <td class=register_table style='width:10%'>
+                        <input type='text' name='threshold' id='threshold' value='$result[threshold]'>
+                    </td>
+                </tr>
+                <input type='hidden' name='category' id='category' value='$result[category]'>
+                <input type='hidden' name='model_num' id='category' value='$result[model_num]'>
+                <input type='hidden' name='product_name' id='category' value='$result[product_name]'>
+            </table>
             ";
         }
 
@@ -95,16 +112,16 @@
 <form action="07-4. renew confirm.php" method="post">
     <div class="register">
             <fieldset>
-                <legend>商品情報修正<br>
-                    <table>
+                <h2>商品情報修正</h2>
+                    <table class="table">
                         <tr>
                             <th>商品ID</th>
                             <th>商品名</th>
                         </tr>
                         <?=$table?>
                     </table>
+                <h2>修正内容</h2>
                     <?=$info?>
-                </legend>
                 <input type="submit" value="送信" id="submit">
             </fieldset>
         </div>

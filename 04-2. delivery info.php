@@ -16,7 +16,7 @@
         require_once("funcs.php");
 // 変数の受け取り
     $id =$_POST['id'];
-    echo $id;
+    // echo $id;
 // 商品名が表示されると、登録されている「商品番号」「在庫総数」「店舗内在庫」「倉庫内在庫」「納品待ち」「発注しきい値」が表示される
     //1.  DB接続します
     try {
@@ -55,7 +55,12 @@
             <input type='hidden' name='product_name' value=$result[product_name]>
             <input type='hidden' name='id' value=$result[id]>
             <input type='hidden' name='category' value=$result[category]>
-            発注数：<input type='text' name='delivery_amount' id='delivery_amount' value=$result[order_amount] readonly><br>";
+            <tr>
+                <td class=register_table>納品数：</td>
+                <td class=register_table>
+                    <input type='text' class = 'register_input' name='delivery_amount' id='delivery_amount' value=$result[order_amount] readonly>
+                </td>
+            </tr>";
         }
 
     }
@@ -65,8 +70,8 @@
 <!-- 登録情報の記入 -->
     <div class="register">
             <fieldset>
-                <legend>商品情報修正<br>
-                    <table>
+                <h2>納品情報登録</h2>
+                    <table class="table">
                         <tr>
                             <th>発注ID</th>
                             <th>商品ID</th>
@@ -76,15 +81,34 @@
                         </tr>
                         <?=$table?>
                     </table>
-                </legend>
+                </h2>
             </fieldset>
         </div>
 <form action="04-3. delivery confirm.php" method="post">
-    <?=$productInfo?>
-    店舗納品数：<input type="text" name="shop_delivery" id="shop_delivery"><br>
-    倉庫納品数：<input type="text" name="warehouse_delivery" id="warehouse_delivery"><br>
-    担当者：<input type="text" name="delivery_person" id="delivery_person">
+<div class="input-wrapper">
+    <table class="sub-table">
+        <?=$productInfo?>
+        <tr>
+            <td class=register_table>店舗納品数：</td>
+            <td class=register_table>
+                <input type="text" class = "register_input" name="shop_delivery" id="shop_delivery">
+            </td>
+        </tr>
+        <tr>
+            <td class=register_table>倉庫納品数：</td>
+            <td class=register_table>
+                <input type="text" class = "register_input" name="warehouse_delivery" id="warehouse_delivery">
+            </td>
+        </tr>
+        <tr>
+            <td class=register_table>担当者：</td>
+            <td class=register_table>
+                <input type="text" class = "register_input" name="delivery_person" id="delivery_person">
+            </td>
+        </tr>
+    </table>
     <input type="submit" value="送信" id="submit">
+</div>
 </form>
 
 
