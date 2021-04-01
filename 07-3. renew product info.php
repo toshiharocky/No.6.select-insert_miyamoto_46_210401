@@ -125,7 +125,11 @@
                 <input type="submit" value="送信" id="submit">
             </fieldset>
         </div>
-    </form>
+</form>
+
+<div class="btn-wrapper">
+    <button class="btn topBtn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+</div>
 
 
 

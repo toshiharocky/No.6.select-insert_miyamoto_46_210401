@@ -124,7 +124,9 @@
         <input type="submit" value="送信" id="submit" style="margin-top:20px;">
     </form>
 </div>
-
+<div class="btn-wrapper">
+    <button class="btn topBtn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+</div>
 
 
 <script>

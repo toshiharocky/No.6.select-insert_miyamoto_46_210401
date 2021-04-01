@@ -67,6 +67,10 @@
 <div class="btn-wrapper">
     <button onclick="location.href='08-5. move product update.php'">送信</button>
 </div>
+<div class="btn-wrapper">
+    <button class="btn backBtn" onclick="location.href='javascript:history.back()'">前のページへ戻る</button><br>
+    <button class="btn topBtn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+</div>
 
     
 </body>

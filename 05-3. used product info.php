@@ -154,6 +154,9 @@
         <input type="submit" value="送信" id="submit">
     </form>
 </div>
+<div class="btn-wrapper">
+    <button class="btn topBtn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+</div>
 
 
 
@@ -170,7 +173,23 @@
         else if(isNaN($("#use_amount").val())){
             alert("使用個数には数字を入力してください");
             return false;
-        }
+        } else {
+            switch($("#place").val()){
+                case "倉庫":
+                    if(Number($("#use_amount").val()) > Number($("#warehouse_amount").val())){
+                        alert ("使用個数が倉庫内在庫を超過しています");
+                        return false;
+                    };
+                    break;
+                case "店舗":
+                    if(Number($("#use_amount").val()) > Number($("#shop_amount").val())){
+                        alert ("使用個数が店舗内在庫を超過しています");
+                        return false;
+                    };
+                    break;
+                }
+                    
+            }
     })
 
 </script>

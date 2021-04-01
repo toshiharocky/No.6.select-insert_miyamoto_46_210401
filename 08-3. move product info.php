@@ -94,6 +94,9 @@
 
     }
 
+
+
+
 ?>
 
 <!-- 移動情報の記入 -->
@@ -143,13 +146,16 @@
         <input type="submit" value="送信" id="submit">
     </form>
 </div>
+<div class="btn-wrapper">
+    <button class="btn topBtn" onclick="location.href='01. top page.html'">トップページへ戻る</button>
+</div>
 
 
 
 <script>
 
     $("#place_from").change(function() {
-        switch($(this).val()){
+        switch($(this).val()){                
                 case "倉庫":
                     $("#place_to").empty();
                     $("#place_to").append(`<input type="hidden" name="place_to" value="店舗">`);
@@ -172,8 +178,27 @@
         else if(isNaN($("#move_amount").val())){
             alert("使用個数には数字を入力してください");
             return false;
-        }
-    })
+        } else {
+            switch($("#place_from").val()){
+                case "倉庫":
+                    if(Number($("#move_amount").val()) > Number($("#warehouse_amount").val())){
+                        alert ("移動個数が倉庫内在庫を超過しています");
+                        return false;
+                    };
+                    break;
+                case "店舗":
+                    if(Number($("#move_amount").val()) > Number($("#shop_amount").val())){
+                        alert ("移動個数が店舗内在庫を超過しています");
+                        return false;
+                    };
+                    break;
+                }
+                    
+            }
+        }         
+    )
+
+
 
 </script>
 
